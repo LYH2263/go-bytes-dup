@@ -1,5 +1,7 @@
 package bufx
 
 func Dup(s []byte) []byte {
-	return s[:len(s):len(s)] // BUG: still shares array
+	out := make([]byte, len(s))
+	copy(out, s)
+	return out
 }
